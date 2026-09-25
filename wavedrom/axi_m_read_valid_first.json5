@@ -1,0 +1,38 @@
+{
+  signal: [
+    { name: 'sys_ckg', wave: 'p.....|p.......' },
+
+    ['Task',
+      { name: 'tpu_rst_n',          wave: '0.1...|........' },
+      { name: 'cpu_cpt_mode[1:0]',  wave: 'x3....|........', data: ['FP16 (static cfg)'] },
+      { name: 'cpu_tpu_en_sync',    wave: '0.1...|.......0' },
+      { name: 'cpu_tpu_start_sync', wave: '0..10.|........' },
+    ],
+
+    ['Report',
+      { name: 'rpt_cpt_cyc[31:0]', wave: '3...4.|.......x', data: ['5 (previous)', '0 (RX; no output count)'] },
+    ],
+
+    ['AXI-ST M / Read (rd_*)',
+      { name: 'rd_tvalid',          wave: '0..1..|.......0' },
+      { name: 'rd_tready',          wave: '0...1.|..0.1..0' },
+      { name: 'rd_tdata[511:0]',    wave: 'x..2.3|456..7=x', data: ['D0 (held)', 'D1', 'D(k-1)', 'D(k)', 'D(k+1) (held)', 'D(k+2)', 'DLAST'] },
+      { name: 'rd_tkeep[63:0]',     wave: 'x..3..|.......x', data: ['64\'hFFFF_FFFF_FFFF_FFFF'] },
+      { name: 'rd_tstrb[63:0]',     wave: 'x..3..|.......x', data: ['64\'hFFFF_FFFF_FFFF_FFFF'] },
+      { name: 'rd_tlast',           wave: '0.....|......10' },
+      { name: 'rd_tid',             wave: '0.....|........' },
+      { name: 'rd_tdest',           wave: '0.....|........' },
+      { name: 'rd_tuser',           wave: '0.....|........' },
+    ],
+
+    ['FIFO_IN',
+      { name: 'fifo_in_pre_full',     wave: '0.....|..1.0...' },
+      { name: 'fifo_in_we',           wave: '0...1.|..0.1..0' },
+      { name: 'fifo_in_wdata[511:0]', wave: 'x...23|45x.678x', data: ['D0', 'D1', 'D(k-1)', 'D(k)', 'D(k+1)', 'D(k+2)', 'DLAST'] },
+      { name: 'rd_dat_last',          wave: '0.....|......10' },
+    ],
+  ],
+  head: { text: 'M interface / input receive: VALID first; PRE_FULL protection pauses a long burst', tick: 0 },
+  foot: { text: 'Gap omits many beats. PRE_FULL is an almost-full guard: READY/WE=0 while D(k+1) holds; READY accepts it when the guard clears.' },
+  config: { hscale: 2 },
+}

@@ -1,0 +1,18 @@
+# Local simulator databases and generated output
+rtl/work/
+sim/
+work/
+transcript
+vsim.wlf
+*.wlf
+*.vcd
+*.fsdb
+
+# Local agent state
+memory/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak

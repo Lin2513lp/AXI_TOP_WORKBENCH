@@ -1,0 +1,38 @@
+{
+  signal: [
+    { name: 'sys_ckg', wave: 'p.....|p.......' },
+
+    ['Task',
+      { name: 'tpu_rst_n',          wave: '0.1...|........' },
+      { name: 'cpu_cpt_mode[1:0]',  wave: 'x3....|........', data: ['FP16 (static cfg)'] },
+      { name: 'cpu_tpu_en_sync',    wave: '0.1...|.......0' },
+      { name: 'cpu_tpu_start_sync', wave: '0..10.|........' },
+    ],
+
+    ['Report',
+      { name: 'rpt_cpt_cyc[31:0]', wave: '3...45|6789=234', data: ['5 (previous)', '0 (clear)', '1', '...', 'N-6', 'N-5', 'N-4', 'N-3', 'N-2', 'N-1', 'N'] },
+    ],
+
+    ['FIFO_OUT',
+      { name: 'fifo_out_empty',         wave: '0.....|.......1' },
+      { name: 'fifo_out_rdata[511:0]', wave: 'x...23|456789=x', data: ['R0', 'R1', 'R(N-6)', 'R(N-5)', 'R(N-4)', 'R(N-3)', 'R(N-2)', 'R(N-1)', 'RLAST'] },
+      { name: 'data_out_last',         wave: '0.....|......10' },
+      { name: 'fifo_out_re',           wave: '0...1.|.......0' },
+    ],
+
+    ['AXI-ST S / Write (wr_*)',
+      { name: 'wr_tready',          wave: '0.1...|........' },
+      { name: 'wr_tvalid',          wave: '0...1.|.......0' },
+      { name: 'wr_tdata[511:0]',    wave: 'x...23|456789=x', data: ['R0', 'R1', 'R(N-6)', 'R(N-5)', 'R(N-4)', 'R(N-3)', 'R(N-2)', 'R(N-1)', 'RLAST'] },
+      { name: 'wr_tkeep[63:0]',     wave: 'x...3.|.......x', data: ['64\'hFFFF_FFFF_FFFF_FFFF'] },
+      { name: 'wr_tstrb[63:0]',     wave: 'x...3.|.......x', data: ['64\'hFFFF_FFFF_FFFF_FFFF'] },
+      { name: 'wr_tlast',           wave: '0.....|......10' },
+      { name: 'wr_tid',             wave: '0.....|........' },
+      { name: 'wr_tdest',           wave: '0.....|........' },
+      { name: 'wr_tuser',           wave: 'x...3.|.......x', data: ['cpu_cpt_mode[1] = 1 (FP)'] },
+    ],
+  ],
+  head: { text: 'S interface / result write-back: READY first; START belongs to the earlier RX task', tick: 0 },
+  foot: { text: 'Gap omits many output beats. EMPTY stays LOW while data remains, then rises after accepted RLAST. Each handshake increments rpt_cpt_cyc.' },
+  config: { hscale: 2 },
+}
