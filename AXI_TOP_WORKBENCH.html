@@ -180,7 +180,7 @@
     details summary { padding: 10px 13px; cursor: pointer; color: #334155; font-weight: 700; font-size: 13px; }
     details pre { margin: 0; padding: 14px 16px; overflow: auto; border-top: 1px solid #dbe2ea; background: #0f172a; color: #dbeafe; font-size: 13px; }
 
-    .simulation-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 18px 0 26px; }
+    .simulation-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 18px 0 26px; }
     .sim-card { padding: 17px 18px; border: 1px solid #e1e4e8; border-radius: 9px; background: #fff; }
     .sim-card b { display: block; margin-bottom: 7px; }
     .sim-card span { color: var(--muted); font-size: 13px; }
@@ -564,7 +564,6 @@
         <div class="simulation-grid">
           <div class="sim-card"><b>AXI_M_TOP · 输入通路</b><span class="badge green">PASS</span><br><span>VALID 先行，FIFO_IN 达到 PRE_FULL 后撤销 READY；读取释放空间后继续接收，DATA 与 TLAST 保持对齐。</span></div>
           <div class="sim-card"><b>AXI_S_TOP · 输出通路</b><span class="badge green">PASS</span><br><span>16×32-bit 结果经 FIFO_OUT 组成 512-bit AXI 数据拍；输出计数随成功握手递增，末拍产生 TLAST。</span></div>
-          <div class="sim-card"><b>共享目录源码</b><span class="badge green">已同步</span><br><span>6 份共享 RTL 与本地一致；两份已更新的顶层 TB 以虚拟机共享目录版本展示。</span></div>
         </div>
         <figure class="simulation-wave">
           <h2>AXI_M_TOP：AXI 输入 → FIFO_IN</h2>
