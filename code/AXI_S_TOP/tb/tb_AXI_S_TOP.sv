@@ -23,6 +23,17 @@ module tb_AXI_S_TOP;
 
   AXI_S_TOP dut (.*);
 
+`ifdef FSDB_TRACE
+  initial begin
+    string fsdb_path;
+    if (!$value$plusargs("FSDB_FILE=%s", fsdb_path))
+      fsdb_path = "tb_AXI_S_TOP.fsdb";
+    $fsdbDumpfile(fsdb_path);
+    $fsdbDumpvars(0, tb_AXI_S_TOP);
+    $fsdbDumpMDA();
+  end
+`endif
+
   function automatic logic [511:0] expected_data(input int beat);
     for (int lane = 0; lane < 16; lane++)
       expected_data[lane*32 +: 32] = 32'h8000_0000 + 32'(beat*16 + lane);

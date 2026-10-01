@@ -31,6 +31,17 @@ module tb_AXI_M_TOP;
 
   AXI_M_TOP dut (.*);
 
+`ifdef FSDB_TRACE
+  initial begin
+    string fsdb_path;
+    if (!$value$plusargs("FSDB_FILE=%s", fsdb_path))
+      fsdb_path = "tb_AXI_M_TOP.fsdb";
+    $fsdbDumpfile(fsdb_path);
+    $fsdbDumpvars(0, tb_AXI_M_TOP);
+    $fsdbDumpMDA();
+  end
+`endif
+
   // Observe the FWFT head before this edge removes it from FIFO_IN.
   always @(posedge sys_ckg) begin
     if (tpu_rst_n) begin
