@@ -1,3 +1,5 @@
+> 源码范围：仅本模块 RTL、内部子模块及独立 TB；其他模块源码请进入对应工作台。`code/` 不收录联调包装、构建脚本、Makefile 或说明文件。
+
 # AXI_TOP Design Workbench
 
 **[Open the AXI_TOP Workbench](https://lin2513lp.github.io/AXI_TOP_WORKBENCH/AXI_TOP_WORKBENCH.html)**
@@ -13,22 +15,21 @@ Independent AXI4-Stream input and output paths with FIFO buffering for TPU_TOP. 
 
 ## Source files
 
-[`code/`](code/) contains the current source snapshot from the shared `AXI_TOP` project. Relative paths and file contents are preserved, including RTL, testbenches, Makefiles, file lists, and available helper scripts. The workbench's code viewer displays this same snapshot.
+[`code/`](code/) contains only this module’s RTL, internal submodules and standalone HDL testbenches. There are **9 RTL/TB files**. Other modules are available from their respective workbenches. [`source-manifest.json`](source-manifest.json) lists the retained source hashes.
 
-There are **17 project files** in this snapshot. [`source-manifest.json`](source-manifest.json) records the shared-directory mapping and SHA-256 checksums. Generated simulator databases, waveform dumps, editor temporary files, and license logs are excluded.
 
 ## Repository layout
 
 | Path | Contents |
 | --- | --- |
 | [`AXI_TOP_WORKBENCH.html`](AXI_TOP_WORKBENCH.html) | Main design workbench |
-| [`code/`](code/) | Shared-project source files and build entry points |
+| [`code/`](code/) | This module’s RTL and independent HDL testbenches |
 | [`source-manifest.json`](source-manifest.json) | Source inventory and checksums |
 | [`index.html`](index.html) | English project introduction and workbench link |
 
 ## Using the project
 
-Open the workbench through the link above to browse the report, code, and waveforms. For simulation, clone this repository, enter `code/AXI_M_TOP/` or `code/AXI_S_TOP/`, and use the corresponding Makefile in a configured Linux EDA environment. The original tool paths and environment variables in the shared Makefile are preserved; configure these for your installation.
+Open the workbench to browse the design report, waveforms and this module’s RTL/TB. Run simulation in the original local project environment.
 
 ## Related workbenches
 

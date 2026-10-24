@@ -2,16 +2,6 @@
   "source_directory": "tpu/tpu/AXI_TOP",
   "files": [
     {
-      "path": "AXI_M_TOP/filelist.f",
-      "bytes": 67,
-      "sha256": "0aee006f598ddab468509e7e9113ce5cb3922b368b25a16169f392f07d2d703a"
-    },
-    {
-      "path": "AXI_M_TOP/Makefile",
-      "bytes": 4595,
-      "sha256": "6d4217011e47ac242e721a980ab91f16e832501b51706688d294b61edcf54358"
-    },
-    {
       "path": "AXI_M_TOP/rtl/axi2fifo.sv",
       "bytes": 2974,
       "sha256": "e06063c4abecbb5c33e83d7786083628c2ff82e6d0f47dd536789bbbe7679524"
@@ -27,11 +17,6 @@
       "sha256": "6179df997e928b25a4b2e37f30cd309acf32ffff4dff53a6c88b03725ad1eea1"
     },
     {
-      "path": "AXI_M_TOP/scripts/check_license.sh",
-      "bytes": 1823,
-      "sha256": "67114732f7d73e88837214305d40a6ec04797ff1bf0f0f41a2b02d9791883ed4"
-    },
-    {
       "path": "AXI_M_TOP/tb/tb_axi2fifo_fifo_in.sv",
       "bytes": 4147,
       "sha256": "58265bf80320f4a35f53cc87939d7697eee831dbac6e3fe2fd3e345d1d5bac26"
@@ -40,16 +25,6 @@
       "path": "AXI_M_TOP/tb/tb_AXI_M_TOP.sv",
       "bytes": 3638,
       "sha256": "dd60c3c40f318fd988703a62737d4c2816563e3a632ce86b984ee2ede1b97e10"
-    },
-    {
-      "path": "AXI_S_TOP/filelist.f",
-      "bytes": 68,
-      "sha256": "d19e9f3a7d609c45e51539a1cd8fdb3a1162ad9a84bc2a566f8a386a90436324"
-    },
-    {
-      "path": "AXI_S_TOP/Makefile",
-      "bytes": 4596,
-      "sha256": "18a0b31b0183db14abf5b6a6d41fb72301ca1e1113512863891892ce007f7cbb"
     },
     {
       "path": "AXI_S_TOP/rtl/AXI_S_TOP.sv",
@@ -67,24 +42,10 @@
       "sha256": "07a98d3311f3b407317fb6a242949f4f081b866d1a3ada7e44bbb8354aa3576d"
     },
     {
-      "path": "AXI_S_TOP/scripts/check_license.sh",
-      "bytes": 1823,
-      "sha256": "67114732f7d73e88837214305d40a6ec04797ff1bf0f0f41a2b02d9791883ed4"
-    },
-    {
       "path": "AXI_S_TOP/tb/tb_AXI_S_TOP.sv",
       "bytes": 3093,
       "sha256": "ac1e0c764d1126d0518414e83dc5aac79e286ac73796479f70e9ee75f185805c"
-    },
-    {
-      "path": "Makefile",
-      "bytes": 303,
-      "sha256": "0ff01e204b0d3254069b146c847e41927d40f46e1ac26958f238a9f3d05b88fc"
-    },
-    {
-      "path": "README.md",
-      "bytes": 2159,
-      "sha256": "fd1bb12c50a0f8873f7051d580a0ce249fcac4f831c598246be65aa5aa3b436e"
     }
-  ]
+  ],
+  "sourceScope": "module-rtl-tb-only-20261024"
 }
